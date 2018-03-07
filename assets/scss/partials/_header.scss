@@ -1,0 +1,31 @@
+.header {
+  min-height: 50px;
+  background-color: #eee;
+  padding-top: 20px;
+
+  @media (min-width: $screen-sm) {
+    padding-bottom: 20px;
+  }
+
+  &__logo {
+    width: 175px;
+    height: 50px;
+    font-size: 1px;
+    text-indent: -100%;
+    display: block;
+    float: left;
+    padding-top: 0;
+    margin: 0 0 0 20px;
+    background-image: url(assets/images/prs-art-logo.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: left 0 top 50%;
+
+    @media (min-width: $screen-sm) {
+      display: inline-block;
+      background-size: 100%;
+      width: 256px;
+      height: 80px;
+    }
+  }
+}

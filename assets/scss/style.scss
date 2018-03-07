@@ -1,0 +1,29 @@
+/*!
+  Theme Name: Precious Red Stone
+  Theme URI: http://preciousredstone.com
+  Author: hello@jabran.me
+  Author URI: http://jabran.me
+  Description: WordPress theme for PreciousRedStone.com
+  Version: 1.0.0
+  License: GNU General Public License v2 or later
+  License URI: LICENSE
+  Text Domain: prs
+  Tags: mendhi, henna, face painting, artist, henna tattoos, hounslow, london
+ */
+
+@import "partials/variables";
+@import "partials/bootstrap-base";
+@import "partials/buttons";
+
+@import "partials/typography";
+@import "partials/globals";
+@import "partials/header";
+@import "partials/header-nav";
+@import "partials/footer";
+
+@import "partials/home-intro-hero";
+@import "partials/service-intro";
+@import "partials/gallery-intro";
+
+@import "partials/overrides";
+@import "partials/rtl";

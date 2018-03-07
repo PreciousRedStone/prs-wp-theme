@@ -1,0 +1,38 @@
+.intro-hero {
+  background-color: $gray-darker;
+  background-image: url('assets/images/henna-by-ruby-london@2x.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  min-height: 250px;
+  position: relative;
+
+  @media (min-width: $screen-sm) {
+    min-height: 350px;
+  }
+
+  @media (min-width: $screen-lg) {
+    min-height: 450px;
+  }
+
+  &__text-container {
+    position: absolute;
+    display: block;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    text-align: center;
+    color: #fff;
+
+    @media (min-width: $screen-sm) {
+      bottom: 25px;
+    }
+  }
+
+  &__text {
+    @media (max-width: $screen-sm) {
+      font-size: 26px;
+    }
+  }
+}

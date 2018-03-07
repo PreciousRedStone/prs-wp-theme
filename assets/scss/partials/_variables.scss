@@ -1,0 +1,30 @@
+// typography
+$font-family-base: Roboto, Helvetica Neue, sans-serif;
+$headings-font-family: Montserrat, Helvetica, sans-serif;
+$headings-font-weight: 700;
+$font-size-base: 16px;
+
+// spacing
+$prs-spacing: 10px;
+
+// branding
+$prs-primary: #c30;
+$prs-primary-light: lighten($prs-primary, 10%);
+$prs-primary-lighter: lighten($prs-primary, 20%);
+$prs-primary-dark: darken($prs-primary, 10%);
+$prs-primary-darker: darken($prs-primary, 20%);
+
+$prs-secondary: hotpink;
+$prs-secondary-light: lighten($prs-secondary, 10%);
+$prs-secondary-lighter: lighten($prs-secondary, 20%);
+$prs-secondary-dark: darken($prs-secondary, 10%);
+$prs-secondary-darker: darken($prs-secondary, 20%);
+
+// buttons
+$btn-default-color: $prs-primary-dark;
+$btn-default-bg: #fff;
+$btn-default-border: $prs-primary;
+
+$btn-primary-color: #fff;
+$btn-primary-bg: $prs-secondary;
+$btn-primary-border: $prs-secondary;
