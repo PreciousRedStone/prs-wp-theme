@@ -99,6 +99,7 @@ gulp.task('copy-files', () => {
     `!${config.app.src}/**/*.txt`,
     `!${config.app.src}/**/.gitignore`,
     `!${config.app.src}/*.json`,
+    `!${config.app.src}/*.zip`,
     `!${config.app.src}/**/gulp.js`,
     `!${config.app.src}/node_modules/**`,
     `!${config.build.dest}/**`,
