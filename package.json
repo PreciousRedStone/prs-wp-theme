@@ -1,0 +1,31 @@
+{
+  "name": "prs-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/jabranr/prs-website.git"
+  },
+  "author": "hello@jabran.me",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/jabranr/prs-website#readme",
+  "devDependencies": {
+    "autoprefixer": "^7.1.6",
+    "bootstrap-sass": "^3.3.7",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^3.9.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^3.4.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "jquery": "^3.2.1",
+    "normalize.css": "^7.0.0",
+    "run-sequence": "^2.2.0"
+  }
+}
