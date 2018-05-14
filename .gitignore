@@ -1,5 +1,6 @@
-style.css
-assets/js/lib/
-assets/scss/*.css
-assets/scss/*.css.map
+theme/style.css
+theme/assets/js/lib/
+theme/assets/scss/*.css
+theme/assets/scss/*.css.map
+node_modules/
 prs-wp-theme-dist/

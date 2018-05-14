@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: mysql
+    volumes:
+      - ./data:/docker-entrypoint-initdb.d/
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: somewordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+  web:
+    build: .
+    container_name: wordpress:php7.1
+    depends_on:
+      - db
+    ports:
+      - "8080:80"
+    volumes:
+      - ./theme:/var/www/html/wp-content/themes/prs-wp-theme
+      - ./wordpress:/var/www/html
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_CHARSET: 'utf8'
+      WORDPRESS_DEBUG: 1
+      WORDPRESS_DEBUG_LOG: 1
+      SITE_DOMAIN: localhost:8080
+      WP_ENV: dev
+    command:
+      - npm install
+      - apache2-custom.sh
+volumes:
+  db_data:

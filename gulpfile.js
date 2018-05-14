@@ -12,7 +12,7 @@ const autoprefixer = require('autoprefixer');
 const config = {
   app: {
     src: '.',
-    assets: './assets',
+    assets: './theme/assets',
     vendor: './node_modules'
   },
   build: {
@@ -88,22 +88,29 @@ gulp.task('copy-vendor-js', () => {
   return gulp.src([
     `${config.app.vendor}/jquery/dist/jquery.slim.js`,
   ]).pipe(gulpConcat('vendor.js'))
-      .pipe(gulp.dest(`${config.build.assets}/js/lib/`));
+      .pipe(gulp.dest(`${config.app.assets}/js/lib/`));
 });
 
 gulp.task('copy-files', () => {
   return gulp.src([
-    `${config.app.src}/**/*`,
-    `!${config.app.src}/**/*.md`,
-    `!${config.app.src}/**/*.dist`,
-    `!${config.app.src}/**/*.txt`,
-    `!${config.app.src}/**/.gitignore`,
-    `!${config.app.src}/*.json`,
-    `!${config.app.src}/*.zip`,
-    `!${config.app.src}/**/gulp.js`,
-    `!${config.app.src}/node_modules/**`,
-    `!${config.build.dest}/**`,
-    `!${config.app.assets}/scss/**`
+    `${config.app.src}/theme/**/*`,
+    `!${config.app.src}/theme/assets/**`,
+    `!${config.app.src}/theme/js/**`
+
+    // `!${config.app.src}/*.js`,
+    // `!${config.app.src}/*.json`,
+    // `!${config.app.src}/*.yml`,
+    // `!${config.app.src}/**/*.md`,
+    // `!${config.app.src}/**/*.dist`,
+    // `!${config.app.src}/**/*.txt`,
+    // `!${config.app.src}/**/.gitignore`,
+    // `!${config.app.src}/*.json`,
+    // `!${config.app.src}/data/**`,
+    // `!${config.app.src}/data/**`,
+    // `!${config.app.src}/node_modules/**`,
+    // `!${config.app.src}/prs-wp-theme-dist/**`,
+    // `!${config.build.dest}/**`,
+    // `!${config.app.assets}/scss/**`
   ]).pipe(gulp.dest(`${config.build.dest}/`));
 });
 
