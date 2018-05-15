@@ -11,7 +11,7 @@ const autoprefixer = require('autoprefixer');
 
 const config = {
   app: {
-    src: '.',
+    src: './theme',
     assets: './theme/assets',
     vendor: './node_modules'
   },
@@ -49,7 +49,7 @@ gulp.task('minify-css', ['sass'], () => {
         debug: true
       }, (details) => {
         let percentage = (details.stats.minifiedSize / details.stats.originalSize) * 100;
-        console.log(`${details.name}: ${details.stats.originalSize} -> ${details.stats.minifiedSize} - ${(100 - percentage).toFixed(2)}%`);
+        console.log(`${config.build.dest}/${details.name}: ${details.stats.originalSize} -> ${details.stats.minifiedSize} - ${(100 - percentage).toFixed(2)}%`);
       }))
       .pipe(gulp.dest(`${config.build.dest}`));
 });
@@ -93,24 +93,10 @@ gulp.task('copy-vendor-js', () => {
 
 gulp.task('copy-files', () => {
   return gulp.src([
-    `${config.app.src}/theme/**/*`,
-    `!${config.app.src}/theme/assets/**`,
-    `!${config.app.src}/theme/js/**`
-
-    // `!${config.app.src}/*.js`,
-    // `!${config.app.src}/*.json`,
-    // `!${config.app.src}/*.yml`,
-    // `!${config.app.src}/**/*.md`,
-    // `!${config.app.src}/**/*.dist`,
-    // `!${config.app.src}/**/*.txt`,
-    // `!${config.app.src}/**/.gitignore`,
-    // `!${config.app.src}/*.json`,
-    // `!${config.app.src}/data/**`,
-    // `!${config.app.src}/data/**`,
-    // `!${config.app.src}/node_modules/**`,
-    // `!${config.app.src}/prs-wp-theme-dist/**`,
-    // `!${config.build.dest}/**`,
-    // `!${config.app.assets}/scss/**`
+    `${config.app.src}/**/*`,
+    `!${config.app.src}/assets/**`,
+    `!${config.app.src}/js/**`,
+    `!${config.app.src}/*.css`
   ]).pipe(gulp.dest(`${config.build.dest}/`));
 });
 
