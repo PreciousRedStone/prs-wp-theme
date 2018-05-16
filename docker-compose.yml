@@ -3,7 +3,7 @@ version: '3'
 services:
   db:
     image: mysql:5.7
-    container_name: mysql
+    container_name: prs_mysql
     volumes:
       - ./data:/docker-entrypoint-initdb.d/
       - db_data:/var/lib/mysql
@@ -17,7 +17,7 @@ services:
       MYSQL_PASSWORD: wordpress
   web:
     build: .
-    container_name: wordpress:php7.1
+    container_name: prs_wordpress
     depends_on:
       - db
     ports:
@@ -36,7 +36,6 @@ services:
       SITE_DOMAIN: localhost:8080
       WP_ENV: dev
     command:
-      - npm install
       - apache2-custom.sh
 volumes:
   db_data:

@@ -4,3 +4,4 @@ theme/assets/scss/*.css
 theme/assets/scss/*.css.map
 node_modules/
 prs-wp-theme-dist/
+wordpress/

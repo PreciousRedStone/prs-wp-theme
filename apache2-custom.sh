@@ -4,18 +4,31 @@ echo "- Setting WP installation path...";
 WP_PATH=/var/www/html
 WP_THEMES_PATH=$WP_PATH/wp-content/themes
 
+if which wp > /dev/null; then
+    echo "- WP CLI is already installed";
+else
+    echo "- Copy WP CLI...";
+    curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+    chmod +x wp-cli.phar
+    mv -f wp-cli.phar /usr/local/bin/wp
+fi
+
+echo "- Confirm WP CLI install...";
+wp --info
+
+echo "- Copy build files...";
+cp -f /tmp/package.json /tmp/package-lock.json /tmp/gulpfile.js /var/www/html/
+
+echo "- Install nodejs modules...";
+npm install
+
 # Production only stuff
 if [ "$WP_ENV" == "production" ]; then
 
-    if which wp > /dev/null; then
-        echo "- WP CLI is already installed";
-    else
-        echo "- Copy WP CLI...";
-        curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-        mv -f wp-cli.phar /usr/local/bin/wp
-    fi
+    echo "- Running in production...";
 
-    wp --info
+    echo "- Build theme...";
+    node_modules/.bin/gulp build
 
     echo "- Build theme and copy to destination";
     cp -R prs-wp-theme-dist/* $WP_THEMES_PATH/prs-wp-theme
