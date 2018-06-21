@@ -41,6 +41,7 @@ if ( ! function_exists( 'prs_setup' ) ) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
+		add_image_size( 'prs-thumbnails', 250, 150, array('cetner','center') );
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
@@ -89,6 +90,8 @@ if ( ! function_exists( 'prs_setup' ) ) :
 			if ( is_object( $args ) && $args->theme_location === 'header-nav' ) {
 				if (in_array('current-menu-item', $classes) ) {
 					$customClasses[] = 'header__nav-item--active';
+				} else if (in_array('featured', $classes)) {
+					$customClasses[] = 'header__nav-item--featured';
 				}
 
 				return $customClasses;

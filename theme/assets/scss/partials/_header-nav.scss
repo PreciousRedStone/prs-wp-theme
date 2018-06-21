@@ -2,24 +2,24 @@
   display: block;
   text-align: center;
   font-weight: bold;
-  line-height: 2;
 
-  @media (min-width: $screen-sm) {
+  @media (min-width: $screen-md) {
     display: inline-block;
     float: right;
-    line-height: 3;
-    margin: 20px 20px 0 0;
+    margin: 32px 20px 0 0;
   }
 
   &::before,
   &::after {
-    content: '';
+    content: ' ';
     display: table;
     clear: both;
   }
 
   &-items {
     margin: 0;
+    padding: 0;
+    display: inline-block;
   }
 
   &-item {
@@ -33,30 +33,34 @@
     }
   }
 
-
-  &-link {
-    display: block;
-    text-decoration: none;
-    border-bottom: 2px solid transparent;
-    transition: border-bottom 100ms ease-in-out;
-
-    &:active,
-    &:hover,
-    &:focus {
-      text-decoration: none;
-      border-bottom-color: inherit;
-    }
-  }
-
+  &-item--featured,
   &-item--active {
     font-weight: bold;
   }
 
   &-item--active &-link {
-    font-weight: bold;
     text-decoration: none;
     border-bottom-color: inherit;
     color: $link-hover-color;
     pointer-events: none;
+  }
+
+  &-link {
+    display: block;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    padding-left: 2px;
+    transition:
+            color 100ms ease-in-out,
+            border-bottom 100ms ease-in-out,
+            background-color 100ms ease-in-out;
+
+    &:active,
+    &:hover,
+    &:focus {
+      pointer-events: all;
+      text-decoration: none;
+      border-bottom-color: inherit;
+    }
   }
 }
